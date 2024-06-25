@@ -2,16 +2,16 @@
 
 #include "UnrealGameplayCharacter.h"
 #include "Engine/LocalPlayer.h"
-#include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "GameFramework/CharacterMovementComponent.h"
-#include "GameFramework/SpringArmComponent.h"
-#include "GameFramework/Controller.h"
+// #include "Camera/CameraComponent.h"
+// #include "Components/CapsuleComponent.h"
+// #include "GameFramework/CharacterMovementComponent.h"
+// #include "GameFramework/SpringArmComponent.h"
+// #include "GameFramework/Controller.h"
 #include "AbilitySystemComponent.h"
 #include "RuneAttributeSet.h"
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
-#include "InputActionValue.h"
+// #include "EnhancedInputComponent.h"
+// #include "EnhancedInputSubsystems.h"
+// #include "InputActionValue.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -20,6 +20,7 @@ DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 AUnrealGameplayCharacter::AUnrealGameplayCharacter()
 {
+	/*
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
@@ -51,8 +52,8 @@ AUnrealGameplayCharacter::AUnrealGameplayCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+	*/
 
-	
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComp");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
@@ -109,12 +110,13 @@ void AUnrealGameplayCharacter::GiveDefaultAbilities()
 		for (TSubclassOf<UGameplayAbility>& StartUpAbility : DefaultAbilities)
 			AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(StartUpAbility.GetDefaultObject(), 1, 0));
 }
-
+/*
 void AUnrealGameplayCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 // Input
@@ -184,3 +186,4 @@ void AUnrealGameplayCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+*/
